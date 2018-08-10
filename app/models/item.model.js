@@ -1,6 +1,6 @@
 'use strict';
 
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const itemSchema = mongoose.Schema({
     businessId: {
@@ -38,4 +38,4 @@ const itemSchema = mongoose.Schema({
     recommendations: []
 });
 
-mongoose.module('item', itemSchema);
+mongoose.model('item', itemSchema);

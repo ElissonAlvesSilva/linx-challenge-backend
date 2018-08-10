@@ -1,19 +1,23 @@
-import express, { static } from 'express';
-import { json, urlencoded } from 'body-parser';
-import express_validator from 'express-validator';
-import cors from 'cors';
-import consign from 'consign';
+'use strict';
+const express = require('express');
+const body_parser = require('body-parser');
+const express_validator = require('express-validator');
+const cors = require('cors');
+const consign = require('consign');
+
+
+
 
 const app = express();
 
 
-app.use(json());
-app.use(urlencoded({
+app.use(body_parser.json());
+app.use(body_parser.urlencoded({
     extended: false
 }));
 app.use(express_validator());
 app.use(cors());
-app.use('/static',static('app/public'));
+app.use('/static',express.static('app/public'));
 
 
 consign({cwd: 'app'})
@@ -22,6 +26,4 @@ consign({cwd: 'app'})
     .then('routes')
     .into(app);
 
-const _app = app;
-
-export { _app as app };
+module.exports.app = app ;
