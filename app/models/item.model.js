@@ -35,10 +35,7 @@ const itemSchema = mongoose.Schema({
             require: true
         }
     },
-    recommendations: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'recommendation'
-    }]
+    recommendations: []
 });
 
 mongoose.module('item', itemSchema);
