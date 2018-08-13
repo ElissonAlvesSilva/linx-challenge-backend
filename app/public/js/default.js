@@ -1,3 +1,5 @@
+
+
 window.addEventListener('load', () => {
     const submit = () => {
         const xhr = new XMLHttpRequest();
@@ -6,15 +8,18 @@ window.addEventListener('load', () => {
         const url = `http://localhost:4000/v1/items/${input_search}`;
         xhr.open('GET', url);
         xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = function () {
+        xhr.onload = () => {
             if (xhr.status === 200) {
+
                 document.getElementById('result-container').style.display = 'table';
+                document.getElementById('not-found').style.display = 'none';
                 const response = JSON.parse(xhr.responseText);
                 populateResult(response.data);
                 populateCarousel(response.data.recommendation);
 
             } else {
-                console.log('produto invalido');
+                document.getElementById('not-found').style.display = 'table';
+                document.getElementById('result-container').style.display = 'none';
             }
         };
 
@@ -26,6 +31,7 @@ window.addEventListener('load', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         submit();
+
     });
 
     const populateResult = (params) => {
@@ -41,20 +47,21 @@ window.addEventListener('load', () => {
         const parent = document.getElementById('recommendations');
 
         for (let i = 0; i < params.length; i++) {
-           
+
             const carousel_container = makeElement(parent, 'div', 'carousel-container');
             const carousel_item = makeElement(carousel_container, 'div', 'carousel-item');
             const link = makeElement(carousel_item, 'a', 'link', params[i].detailUrl);
-           
-            makeTagHTML(link, 'img', 'img-carousel', params[i]);
-          
-            makeElement(link, 'div', 'description', params[i].name);
-          
+
+            const item_image = makeElement(link, 'div', 'item-image');
+            makeTagHTML(item_image, 'img', 'img-carousel', params[i]);
+
+            makeElement(link, 'div', 'description-carousel', params[i].name);
+
             makeTagHTML(link, 'label', 'price-label', 'Preço ');
             makeTagHTML(link, 'span', 'price', params[i].price);
-          
-            makeElement(link, 'div', 'paymentConditions', params[i].productInfo.paymentConditions);
-          
+
+            makeElement(link, 'div', 'paymentConditions', valueToReal(params[i].productInfo.paymentConditions));
+
             makeTagHTML(link, 'p', '', 'sem juros');
         }
 
@@ -103,8 +110,4 @@ window.addEventListener('load', () => {
         return elm;
     };
 
-    const setHref = (element, param) => {
-        const elm = element.href = `http://${param}`;
-        return elm;
-    };
 });

@@ -26,57 +26,50 @@
             </form>
         </div>
     </div>
-    <div class="invalid-item">
-        <!-- Produto invalido -->
+    <div class="invalid-item" id="not-found">
+        <h1> OPPS!</h1>
+        <h2>Item not found</h2>
     </div>
     <div class="result" id="result-container">
-        <div class="result-item">
-            <div class="result-header">
-                <span class="visit">Você visitou:</span>
-                <span class="interesting-for">e talvez se interesse por:</span>
-            </div>
-            <div class="item-group" id="result">
-                <a href="" class="link">
-                    <img src="" alt="" srcset="" class="result-img">
-                    <div class="description"></div>
-                    <label class="price-label"></label>
-                    <span class="price"></span>
-                    <div class="paymentConditions">
-                        
-                    </div>
-                    <p>sem juros</p>
-                </a>
-            </div>
+        <div class="result-header">
+            <span class="visit">Você visitou:</span>
+            <span class="interesting-for">e talvez se interesse por:</span>
         </div>
-        <div class="carousel">
-            <div class="arrows arrows-left">
-                <button id="left-arrow" class="arrow-btn" style="display: none;">
-                    <i id="icon-left"></i>
-                </button>
-            </div>
-            <div class="carousel-content">
-                <div class="carousel-grid items-grid items-grid--max-4" style="left: 0px;" id="recommendations">
-             <!--
-                    <div class="carousel-container">
-                        <div class="carousel-item">
-                            <img src="" alt="" srcset="">
-                            <div class="description"></div>
-                            <label class="price-label"></label>
-                            <span class="price"></span>
-                            <div class="paymentConditions">
-                            </div>
-                            <p>sem juros</p>
+        <div class="content">
+            <div class="result-item">
+                <div class="item-group" id="result">
+                    <a href="" class="link">
+                        <div class="item-image">
+                            <img src="" alt="" srcset="" class="result-img">
                         </div>
-                    </div>
--->
+                        <div class="description"></div>
+                        <label class="price-label"></label>
+                        <span class="price"></span>
+                        <div class="paymentConditions">
+
+                        </div>
+                        <p>sem juros</p>
+                    </a>
                 </div>
             </div>
-            <div class="arrows arrows-right">
-                <button id="right-arrow" class="arrow-btn" style="display: block;">
-                    <i id="icon-right"></i>
-                </button>
+            <div class="carousel">
+                <div class="arrows arrows-left">
+                    <button id="left-arrow" class="arrow-btn" style="display: none;">
+                        <i id="icon-left"></i>
+                    </button>
+                </div>
+                <div class="carousel-content">
+                    <div class="carousel-grid items-grid items-grid--max-4" style="left: 0px;" id="recommendations">
+                    </div>
+                </div>
+                <div class="arrows arrows-right">
+                    <button id="right-arrow" class="arrow-btn" style="display: block;">
+                        <i id="icon-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
+
     </div>
     <script src="/static/js/carousel.js"></script>
     <script src="/static/js/default.js"></script>
