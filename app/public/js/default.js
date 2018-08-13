@@ -3,9 +3,9 @@
 window.addEventListener('load', () => {
     const submit = () => {
         const xhr = new XMLHttpRequest();
-        const input_search = document.getElementById('businessId').value;
+        const input_search = document.getElementById('businessId');
 
-        const url = `http://localhost:4000/v1/items/${input_search}`;
+        const url = `http://localhost:4000/v1/items/${input_search.value}`;
         xhr.open('GET', url);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = () => {
@@ -13,6 +13,7 @@ window.addEventListener('load', () => {
 
                 document.getElementById('result-container').style.display = 'table';
                 document.getElementById('not-found').style.display = 'none';
+                document.getElementById('recommendations').innerHTML = '';
                 const response = JSON.parse(xhr.responseText);
                 populateResult(response.data);
                 populateCarousel(response.data.recommendation);

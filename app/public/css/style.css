@@ -156,7 +156,7 @@ input[type="search"] {
     display: inline-block;
     margin: 4px;
     vertical-align: top;
-    padding-top: 10px;
+    padding: 5px;
 }
 
 .carousel-container:hover {
