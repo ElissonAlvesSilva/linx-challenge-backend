@@ -29,6 +29,7 @@ module.exports.getById = (req, res) => {
         });
     }
     item.findOne({businessId: businessId}).then(item => {
+        console.log(item);
         if (!item) {
             return res.status(404).send({
                 status: 404,
