@@ -4,7 +4,8 @@
   "description": "System used in a challenge for a backend vancancy. The system has a page and inside the page there is a carousel the works with a JS pure.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/bin/server.js"
   },
   "repository": {
     "type": "git",
